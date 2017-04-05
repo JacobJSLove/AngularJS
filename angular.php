@@ -13,7 +13,7 @@
 	Data to : {{ orginal() | date }} 
 	</div>
 		<div ng-controller="NewWords">
-	Zdanie to  : {{ funkcjaA }} 
+	Zdanie to  : {{ funkcjaA() }} 
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
