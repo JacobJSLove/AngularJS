@@ -10,9 +10,9 @@ app.controller('dateCtrl', function($rootScope, $scope){
 });
 
 app.controller('NewWords', function($scope){
-	$scope.wiadomosc = "Przypisuje wiadomosc do widoku";
+	$scope.wiadomosc = wiadomosc;
+	var wiadomosc = "Przypisuje wiadomosc do widoku ";
 	$scope.funkcjaA = function () {
-		return wiadomosc + "Nowe słowo";
+		return wiadomosc + "i dodajemy słowo";
 	}
 });
-
