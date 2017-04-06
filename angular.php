@@ -9,11 +9,8 @@
 </style>
 </head>
 <body>
-	<div ng-controller="dateCtrl">
-	Data to : {{ orginal() | date }} 
-	</div>
-		<div ng-controller="NewWords">
-	Zdanie to  : {{ funkcjaA() }} 
+	<div ng-controller="myCtrl">
+	Imie to: {{ human.fName }} <br> A nazwisko to: {{ human.lName }}
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
