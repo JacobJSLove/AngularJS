@@ -9,11 +9,12 @@
 </style>
 </head>
 <body>
-	<div ng-controller="dateCtrl">
-	Data to : {{ orginal() | date }} 
-	</div>
-		<div ng-controller="NewWords">
-	Zdanie to  : {{ funkcjaA() }} 
+	<div ng-controller="myCtrl">
+		<ul>
+			<li ng-repeat="oferta in oferty ">
+				<p> Nazwa {{oferta.nazwa}} || cena {{oferta.cena}} </p>
+			</li>	
+		</ul>
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
