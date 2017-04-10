@@ -1,18 +1,6 @@
-// Przypisywanie RootScope do Scope
-var app = angular.module('app', []);
-app.run(function ($rootScope) {
-	$rootScope.dateOrginal = new Date();
-});
-app.controller('dateCtrl', function($rootScope, $scope){
-	$scope.orginal = function () {
-		return $rootScope.dateOrginal;
-	}	
-});
-
-app.controller('NewWords', function($scope){
-	$scope.wiadomosc = wiadomosc;
-	var wiadomosc = "Przypisuje wiadomosc do widoku ";
-	$scope.funkcjaA = function () {
-		return wiadomosc + "i dodajemy słowo";
-	}
+// Method chaining
+var app = angular.module('app', [])
+				 .controller('myCtrl', function ($scope){
+var human = {fName: "Mark",lName: "Testings"};
+$scope.human = human;
 });
