@@ -9,11 +9,34 @@
 </style>
 </head>
 <body>
-	<div ng-controller="dateCtrl">
-	Data to : {{ orginal() | date }} 
-	</div>
-		<div ng-controller="NewWords">
-	Zdanie to  : {{ funkcjaA() }} 
+	<div ng-controller="Ctrl">
+		Search : <input type="text" placeholder="Search employee" ng-model="searchText.name"/>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Name 
+					</th>
+					<th>
+						Date 
+					</th>
+					<th>
+						Gender 
+					</th>
+					<th>
+						Salary 
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="employee in employees | filter:searchText">
+					<td>{{employee.name | uppercase}}</td>
+					<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+					<td>{{employee.gender | lowercase}}</td>
+					<td>{{employee.salary | number:2}}</td>
+				</tr>
+			</tbody>
+		</table>	
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
