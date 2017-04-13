@@ -1,6 +1,6 @@
-var app = angular.module('app', []);			 
+var app = angular.module('app', []);	
 app.controller('Ctrl', function ($scope){
-	   var employees = [
+       var employees = [
                 {
                     name: "Ben", dateOfBirth: new Date("November 23, 1980"),
                     gender: "Male", salary: 55000
@@ -26,5 +26,4 @@ app.controller('Ctrl', function ($scope){
             $scope.employees = employees;
 
 });
-
 

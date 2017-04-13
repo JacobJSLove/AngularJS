@@ -10,7 +10,9 @@
 </head>
 <body>
 	<div ng-controller="Ctrl">
-		Search : <input type="text" placeholder="Search employee" ng-model="searchText.name"/>
+		<input type="text" placeholder="Search Name" ng-model="searchText.name"/>
+		<input type="text" placeholder="Search Gender" ng-model="searchText.gender"/>
+		<input type="checkbox" ng-model="exactMatch" /> Exact Match
 		<table class="table">
 			<thead>
 				<tr>
@@ -29,7 +31,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText">
+				<tr ng-repeat="employee in employees | filter:searchText:exactMatch">
 					<td>{{employee.name | uppercase}}</td>
 					<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{employee.gender | lowercase}}</td>
