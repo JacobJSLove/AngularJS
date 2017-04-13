@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div ng-controller="Ctrl">
-		Search : <input type="text" placeholder="Search employee" ng-model="searchText.name"/>
+		<input type="text" placeholder="Search Name & Gender" ng-model="searchText"/>
 		<table class="table">
 			<thead>
 				<tr>
@@ -29,7 +29,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText">
+				<tr ng-repeat="employee in employees | filter:search">
 					<td>{{employee.name | uppercase}}</td>
 					<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
 					<td>{{employee.gender | lowercase}}</td>
