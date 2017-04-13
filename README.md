@@ -8,4 +8,5 @@
 7.SortBy-Col<br>
 8.Search box<br>
 9.Search box + exactMatch<br>
-10.Search box 2 match col
+10.Search box 2 match col<br>
+11.Custom filter
