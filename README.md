@@ -7,4 +7,5 @@
 6.orderBy<br>
 7.SortBy-Col<br>
 8.Search box<br>
-9.Search box + exactMatch
+9.Search box + exactMatch<br>
+10.Search box 2 match col
