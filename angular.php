@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app>
 <head>
 	<title>Nauka Angulara</title>
 	<link rel='stylesheet' href='bootstrap.min.css' />
@@ -9,38 +9,40 @@
 </style>
 </head>
 <body>
+    <div ng-init="employees = [
+                { name: 'Ben', gender: 'Male', city: 'London'},
+                { name: 'Sara', gender: 'Female', city: 'Chennai'},
+                { name: 'Mark', gender: 'Male', city: 'Chicago'},
+                { name: 'Pam', gender: 'Female', city: 'London'},
+                { name: 'Todd', gender: 'Male', city: 'Chennai'}
+            ]">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.city}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+    </div>
+
 	<div ng-controller="Ctrl">
-		Search : <input type="text" placeholder="Search employee" ng-model="searchText.name"/>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						Name 
-					</th>
-					<th>
-						Date 
-					</th>
-					<th>
-						Gender 
-					</th>
-					<th>
-						Salary 
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText">
-					<td>{{employee.name | uppercase}}</td>
-					<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
-					<td>{{employee.gender | lowercase}}</td>
-					<td>{{employee.salary | number:2}}</td>
-				</tr>
-			</tbody>
-		</table>	
+
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
 <script src="angular.js"></script>
-<script src="controller.js"></script>
+<script src="controlsler.js"></script>
 <script src="bootstrap.js"></script>
 </html>
