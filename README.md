@@ -11,4 +11,5 @@
 10.Search box 2 match col<br>
 11.Custom filter<br>
 12.ng-hide,ng-show<br>
-13.ng-init
+13.ng-init<br>
+14.ng-include
