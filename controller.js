@@ -1,6 +1,6 @@
-var app = angular.module('app', []);			 
+var app = angular.module('app', []);	
 app.controller('Ctrl', function ($scope){
-	   var employees = [
+       var employees = [
                 {
                     name: "Ben", dateOfBirth: new Date("November 23, 1980"),
                     gender: "Male", salary: 55000
@@ -24,7 +24,20 @@ app.controller('Ctrl', function ($scope){
             ];
 
             $scope.employees = employees;
+            $scope.search = function (item) {
+                if ($scope.searchText == undefined) {
+                    return true;
+                }
+                else {
+                    if (item.gender.toLowerCase()
+                                 .indexOf($scope.searchText.toLowerCase()) != -1 ||
+                        item.name.toLowerCase()
+                                 .indexOf($scope.searchText.toLowerCase()) != -1) {
+                        return true;
+                    }
+                }
 
+                return false;
+            };
 });
-
 
