@@ -9,12 +9,21 @@
 </style>
 </head>
 <body>
-	<div ng-controller="myCtrl">
-		<ul>
-			<li ng-repeat="oferta in oferty ">
-				<p> Nazwa {{oferta.nazwa}} || cena {{oferta.cena}} </p>
-			</li>	
-		</ul>
+	<div ng-controller="Ctrl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees.contacts">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.surname}}</td>
+                </tr>
+            </tbody>
+        </table>
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
