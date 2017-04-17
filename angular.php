@@ -10,33 +10,28 @@
 </head>
 <body>
 	<div ng-controller="Ctrl">
-		Search : <input type="text" placeholder="Search employee" ng-model="searchText.name"/>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						Name 
-					</th>
-					<th>
-						Date 
-					</th>
-					<th>
-						Gender 
-					</th>
-					<th>
-						Salary 
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="employee in employees | filter:searchText">
-					<td>{{employee.name | uppercase}}</td>
-					<td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
-					<td>{{employee.gender | lowercase}}</td>
-					<td>{{employee.salary | number:2}}</td>
-				</tr>
-			</tbody>
-		</table>	
+<input type="checkbox" ng-model="hideSalary" /> Hide Salary
+</br>
+<table class="table">
+            <thead>
+  <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-hide="hideSalary">Salary</th>
+                    <th ng-show="hideSalary">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender}} </td>
+                    <td> {{ employee.city}} </td>
+                    <td ng-hide="hideSalary"> {{ employee.salary}} </td>
+                    <td ng-show="hideSalary"> #### </td>
+                </tr>
+            </tbody>
+        </table>	
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
