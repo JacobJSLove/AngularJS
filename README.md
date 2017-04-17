@@ -12,4 +12,5 @@
 11.Custom filter<br>
 12.ng-hide,ng-show<br>
 13.ng-init<br>
-14.ng-include
+14.ng-include<br>
+15.$http
