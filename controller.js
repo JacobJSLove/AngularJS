@@ -1,10 +1,10 @@
-// Method chaining
-var app = angular.module('app', [])
-				 .controller('myCtrl', function ($scope){
-					$scope.oferty = [
-					{ nazwa: 'Obiekt 1', cena: 150 },
-					{ nazwa: 'Obiekt 2', cena: 100 },
-					{ nazwa: 'Obiekt 3', cena: 250 },
-					];
+var app = angular.module('app', []);	
+app.controller('Ctrl', function ($scope, $http){
+        $http({
+          method: 'GET',
+          url: 'http://localhost:3000/contacts'
+                }).then( function (response){
+            $scope.employees = response.data;
+            });
 });
-				 
+
