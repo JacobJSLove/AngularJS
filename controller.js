@@ -1,30 +1,43 @@
-var app = angular.module('app', []);			 
-app.controller('Ctrl', function ($scope){
-	   var employees = [
-                {
-                    name: "Ben", dateOfBirth: new Date("November 23, 1980"),
-                    gender: "Male", salary: 55000
-                },
-                {
-                    name: "Sara", dateOfBirth: new Date("May 05, 1970"),
-                    gender: "Female", salary: 68000
-                },
-                {
-                    name: "Mark", dateOfBirth: new Date("August 15, 1974"),
-                    gender: "Male", salary: 57000
-                },
-                {
-                    name: "Pam", dateOfBirth: new Date("October 27, 1979"),
-                    gender: "Female", salary: 53000
-                },
-                {
-                    name: "Todd", dateOfBirth: new Date("December 30, 1983"),
-                    gender: "Male", salary: 60000
-                }
-            ];
+var app = angular
+.module('app', ["ngRoute"])
+.config(function ($routeProvider, $locationProvider){
+$locationProvider.hashPrefix('');
 
-            $scope.employees = employees;
+$routeProvider
+  .when("/home", {
+    templateUrl:"templates/home.html",
+    controller:"homeController"
+  })
+  .when("/courses", {
+    templateUrl:"templates/courses.html",
+    controller:"coursesController"
+  })
+    .when("/students", {
+    templateUrl:"templates/students.html",
+    controller:"studentsController"
+  })
+$locationProvider.html5Mode(true);
+})
+.controller('homeController', function($scope){
+  $scope.message = "Home Page";
+})
+
+.controller("coursesController", function($scope){
+  $scope.courses = ["HTML", "C+", "CSS"];
+})
+
+.controller("studentsController", function($scope, $http){
+      var successCallback =  function (response){
+            $scope.students = response.data;
+            };
+
+    var errorCallback = function (reason){
+            $scope.error = reason.data;
+            };
+  $http({
+              method: 'GET',
+              url: 'students.json'
+            }).then(successCallback, errorCallback);
 
 });
-
 
