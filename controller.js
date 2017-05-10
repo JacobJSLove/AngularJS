@@ -1,22 +1,24 @@
 var app = angular
 .module('app', ["ngRoute"])
 .config(function ($routeProvider, $locationProvider){
-$locationProvider.hashPrefix('');
-
-$routeProvider
-  .when("/home", {
-    templateUrl:"templates/home.html",
-    controller:"homeController"
-  })
-  .when("/courses", {
-    templateUrl:"templates/courses.html",
-    controller:"coursesController"
-  })
-    .when("/students", {
-    templateUrl:"templates/students.html",
-    controller:"studentsController"
-  })
-$locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('');
+  $routeProvider
+    .when("/home", {
+      templateUrl:"templates/home.html",
+      controller:"homeController"
+    })
+    .when("/courses", {
+      templateUrl:"templates/courses.html",
+      controller:"coursesController"
+    })
+      .when("/students", {
+      templateUrl:"templates/students.html",
+      controller:"studentsController"
+    })
+    .otherwise({
+      redirectTo:"/home"
+    })
+  $locationProvider.html5Mode(true);
 })
 .controller('homeController', function($scope){
   $scope.message = "Home Page";
