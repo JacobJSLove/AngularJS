@@ -41,7 +41,7 @@ a{
     <tr>
         <td colspan="2" class="header">
             <h1>
-                WebSite Header
+                WebSifte Header
             </h1>
         </td>
     </tr>

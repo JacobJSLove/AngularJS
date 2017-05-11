@@ -1,7 +1,6 @@
 var app = angular
 .module('app', ["ngRoute"])
 .config(function ($routeProvider, $locationProvider){
-  $locationProvider.hashPrefix('');
   $routeProvider
     .when("/home", {
       templateUrl:"templates/home.html",
@@ -15,10 +14,12 @@ var app = angular
       templateUrl:"templates/students.html",
       controller:"studentsController"
     })
-    .otherwise({
-      redirectTo:"/home"
+      .when("/students/:id", {
+      templateUrl:"templates/studentsDetails.html",
+      controller:"studentsDetailsController"
     })
   $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('');
 })
 .controller('homeController', function($scope){
   $scope.message = "Home Page";
@@ -30,7 +31,7 @@ var app = angular
 
 .controller("studentsController", function($scope, $http){
       var successCallback =  function (response){
-            $scope.students = response.data;
+            $scope.citys = response.data.citys;
             };
 
     var errorCallback = function (reason){
@@ -38,8 +39,18 @@ var app = angular
             };
   $http({
               method: 'GET',
-              url: 'students.json'
+              url: 'http://localhost:3000/citys'
             }).then(successCallback, errorCallback);
 
+})
+.controller("studentsDetailsController", function($scope, $http, $routeParams){
+var id = $routeParams.id-1;
+$http({
+              method: 'GET',
+              url: 'http://localhost:3000/city/'+id,
+              params:{id:$routeParams.id},
+            }).then(function(response){
+            $scope.city = response.data.citys;
+            })
 });
 
