@@ -4,38 +4,46 @@ var app = angular
   $routeProvider
     .when("/home", {
       templateUrl:"templates/home.html",
-      controller:"homeController"
+      controller:"homeController",
+      controllerAs: "homeCtrl"
     })
     .when("/courses", {
       templateUrl:"templates/courses.html",
-      controller:"coursesController"
+      controller:"coursesController",
+      controllerAs: "coursesCtrl"    
     })
       .when("/students", {
       templateUrl:"templates/students.html",
-      controller:"studentsController"
+      controller:"studentsController",
+      controllerAs: "studentsCtrl"
     })
       .when("/students/:id", {
       templateUrl:"templates/studentsDetails.html",
-      controller:"studentsDetailsController"
+      controller:"studentsDetailsController",
+      controllerAs: "studentsDetailsCtrl"
+    })
+      .otherwise({
+      redirectTo:"/home"
     })
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('');
 })
-.controller('homeController', function($scope){
-  $scope.message = "Home Page";
+.controller('homeController', function(){
+  this.message = "Home Page";
 })
 
-.controller("coursesController", function($scope){
-  $scope.courses = ["HTML", "C+", "CSS"];
+.controller("coursesController", function(){
+  this.courses = ["HTML", "C+", "CSS"];
 })
 
-.controller("studentsController", function($scope, $http){
+.controller("studentsController", function($http){
+      var vm = this;
       var successCallback =  function (response){
-            $scope.citys = response.data.citys;
+            vm.citys = response.data.citys;
             };
 
     var errorCallback = function (reason){
-            $scope.error = reason.data;
+            vm.error = reason.data;
             };
   $http({
               method: 'GET',
@@ -43,14 +51,15 @@ var app = angular
             }).then(successCallback, errorCallback);
 
 })
-.controller("studentsDetailsController", function($scope, $http, $routeParams){
+.controller("studentsDetailsController", function($http, $routeParams){
 var id = $routeParams.id-1;
+var vm = this;
 $http({
               method: 'GET',
               url: 'http://localhost:3000/city/'+id,
               params:{id:$routeParams.id},
             }).then(function(response){
-            $scope.city = response.data.citys;
+            vm.city = response.data.citys;
             })
 });
 
