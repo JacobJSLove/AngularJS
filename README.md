@@ -20,4 +20,5 @@
 19.Routing + remove #<br>
 20.Routing + base route <br>
 21.Routing with parameters <br> 
-22.This instead of $scope<br> 
+22.this instead of $scope<br> 
+23.ng-controler as
