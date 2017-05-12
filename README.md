@@ -23,3 +23,4 @@
 22.this instead of $scope<br> 
 23.ng-controler as<br> 
 24.caseInsensitiveMatch and new templates instead of html file <br>
+25.Reloading data from backend with button <br>
