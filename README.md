@@ -20,3 +20,4 @@
 19.Routing + remove #<br>
 20.Routing + base route <br>
 21.Routing with parameters <br> 
+22.This instead of $scope<br> 
