@@ -1,9 +1,11 @@
 var app = angular
 .module('app', ["ngRoute"])
 .config(function ($routeProvider, $locationProvider){
+ $routeProvider.caseInsensitiveMatch = true; /* Students work like students */
   $routeProvider
     .when("/home", {
       templateUrl:"templates/home.html",
+    /*template:"<h1>Zamiast nowe pliku html</h1>", Nowa możliwość zmiast nowych plików html*/
       controller:"homeController",
       controllerAs: "homeCtrl"
     })
@@ -24,13 +26,22 @@ var app = angular
     })
       .otherwise({
       redirectTo:"/home"
-    })
+    })  
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('');
 })
 .controller('homeController', function(){
   this.message = "Home Page";
 })
+            .controller("countryController", function () {
+                this.name = "India";
+            })
+            .controller("stateController", function () {
+                this.name = "Maharashtra";
+            })
+            .controller("cityController", function () {
+                this.name = "Mumbai";
+            })
 
 .controller("coursesController", function(){
   this.courses = ["HTML", "C+", "CSS"];
