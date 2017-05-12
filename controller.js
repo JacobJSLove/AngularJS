@@ -31,6 +31,15 @@ var app = angular
 .controller('homeController', function(){
   this.message = "Home Page";
 })
+            .controller("countryController", function () {
+                this.name = "India";
+            })
+            .controller("stateController", function () {
+                this.name = "Maharashtra";
+            })
+            .controller("cityController", function () {
+                this.name = "Mumbai";
+            })
 
 .controller("coursesController", function(){
   this.courses = ["HTML", "C+", "CSS"];
