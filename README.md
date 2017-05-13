@@ -24,3 +24,4 @@
 23.ng-controler as<br> 
 24.caseInsensitiveMatch and new templates instead of html file <br>
 25.Reloading data from backend with button <br>
+26.Ask to leave + load wait on data <br>
