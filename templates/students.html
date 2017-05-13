@@ -2,7 +2,7 @@
 {{error}}
 <ul>
 	<li ng-repeat="city in studentsCtrl.citys">
-		<a href="students/{{city.id}}">
+		<a ui-sref="studentsDetails({ id: city.id })">
 		{{city.name}}
 		</a>
 	</li>
