@@ -9,12 +9,28 @@
 </style>
 </head>
 <body>
-	<div ng-controller="myCtrl">
-		<ul>
-			<li ng-repeat="oferta in oferty ">
-				<p> Nazwa {{oferta.nazwa}} || cena {{oferta.cena}} </p>
-			</li>	
-		</ul>
+	<div ng-controller="1Ctrl">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Like</th>
+					<th>Dislike</th>
+					<th>Like/Dislike</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="technology in technologies">
+					<td>{{ technology.name }}</td>
+					<td>{{ technology.like }}</td>
+					<td>{{ technology.dislike }}</td>
+					<td>
+						<input type="button" value="like" ng-click="addlike(technology)">
+						<input type="button" value="like" ng-click="adddislike(technology)">
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 <script src="jquery-3.1.0.min.js"></script>
