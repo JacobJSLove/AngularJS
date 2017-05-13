@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
+    <base href="/"> </base>
 	<title>Nauka Angulara</title>
 	<link rel='stylesheet' href='bootstrap.min.css' />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <base href="/JS/"> </base>
 <style>
 .header {
     width: 800px;
@@ -36,12 +36,12 @@ a{
 }
 </style>
 </head>
-<body >
+<body>
     <table class="table" style="font-family: Arial">
     <tr>
         <td colspan="2" class="header">
             <h1>
-                WebSifte Header
+                WebSite Header
             </h1>
         </td>
     </tr>
